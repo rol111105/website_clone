@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Geist*Studio palette */
+    --cream: 34 47% 95%;        /* #f9f2eb */
+    --ink: 30 8% 10%;           /* #1c1a17 */
+    --green: 152 74% 50%;       /* #22dc7f */
+    --gray: 40 3% 58%;          /* #969490 */
+
+    --background: var(--cream);
+    --foreground: var(--ink);
+    --card: var(--cream);
+    --card-foreground: var(--ink);
+    --popover: var(--cream);
+    --popover-foreground: var(--ink);
+    --primary: var(--ink);
+    --primary-foreground: var(--cream);
+    --secondary: 34 30% 90%;
+    --secondary-foreground: var(--ink);
+    --muted: 34 24% 88%;
+    --muted-foreground: 40 4% 45%;
+    --accent: var(--green);
+    --accent-foreground: var(--ink);
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 30 10% 82%;
+    --input: 30 10% 82%;
+    --ring: var(--ink);
+    --radius: 0.25rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+    font-feature-settings: "kern" 1;
+  }
+  ::selection {
+    background: hsl(var(--green));
+    color: hsl(var(--ink));
+  }
+}
+
+@layer utilities {
+  .font-serif {
+    font-family: var(--font-serif), Georgia, serif;
+  }
+  .font-mono {
+    font-family: var(--font-mono), ui-monospace, monospace;
+  }
+  .font-sans {
+    font-family: var(--font-sans);
+  }
+  .label {
+    font-family: var(--font-mono), ui-monospace, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-size: 0.72rem;
+    line-height: 1;
+  }
+  /* used to hide native scrollbars on horizontal rails */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+:root {
+  --font-sans: "Helvetica Neue", Helvetica, Arial, "Segoe UI", Roboto,
+    sans-serif;
+}
+
+/* Lenis smooth scroll */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
